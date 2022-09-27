@@ -1,0 +1,243 @@
+"Manage Categories","Manage Categories"
+"Add New Category","Add New Category"
+"Save Category","Save Category"
+"Save and Continue Edit","Save and Continue Edit"
+"Delete Category","Delete Category"
+"Edit Category '%1'","Edit Category '%1'"
+"New Category","New Category"
+"Category Information","Category Information"
+Name,Name
+Description,Description
+Position,Position
+"General Infomration","General Infomration"
+"Manage Store Locators","Manage Store Locators"
+"New Store","New Store"
+"Manage Tags","Manage Tags"
+"New Tag","New Tag"
+"StoreLocator Settings","StoreLocator Settings"
+Guide,Guide
+"Get Support","Get Support"
+"Manage StoreLocator","Manage StoreLocator"
+"Add New StoreLocator","Add New StoreLocator"
+"Save StoreLocator","Save StoreLocator"
+"Delete StoreLocator","Delete StoreLocator"
+"Edit StoreLocator '%1'","Edit StoreLocator '%1'"
+"New StoreLocator","New StoreLocator"
+ID,ID
+Action,Action
+"StoreLocator Information","StoreLocator Information"
+City,City
+"Zip Code","Zip Code"
+Country,Country
+State/Province,State/Province
+Telephone,Telephone
+Email,Email
+website,website
+"Marker Color","Marker Color"
+"Marker FontIcon","Marker FontIcon"
+Address,Address
+lat,lat
+lng,lng
+Address2,Address2
+"Image Thumbnail","Image Thumbnail"
+"Store's link","Store's link"
+Status,Status
+"StoreLocator Status","StoreLocator Status"
+"Store View","Store View"
+Monday,Monday
+Tuesday,Tuesday
+Wednesday,Wednesday
+Thursday,Thursday
+Friday,Friday
+Sartuday,Sartuday
+Sunday,Sunday
+"Page Title","Page Title"
+"Meta keywords","Meta keywords"
+"Meta Description","Meta Description"
+linkedin,linkedin
+Facebook,Facebook
+Twitter,Twitter
+Youtube,Youtube
+Vimeo,Vimeo
+"Google Plus","Google Plus"
+"Gmap Location","Gmap Location"
+Categories,Categories
+Tags,Tags
+"Gallery Images","Gallery Images"
+"Opening Time","Opening Time"
+Social,Social
+SEO,SEO
+"Add New Tag","Add New Tag"
+"Save Tag","Save Tag"
+"Delete Tag","Delete Tag"
+"Edit Tag '%1'","Edit Tag '%1'"
+"Tag Information","Tag Information"
+"Store Locator","Store Locator"
+Home,Home
+"Go to Home Page","Go to Home Page"
+"Return to Store Locator","Return to Store Locator"
+"The category has been deleted.","The category has been deleted."
+"We can't find a category to delete.","We can't find a category to delete."
+Category,Category
+"Manage Category","Manage Category"
+"This Category no longer exists.","This Category no longer exists."
+"Edit Category","Edit Category"
+Lof_StoreLocator,Lof_StoreLocator
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been disabled.","A total of %1 record(s) have been disabled."
+"A total of %1 record(s) have been enabled.","A total of %1 record(s) have been enabled."
+"You saved this Category.","You saved this Category."
+"Something went wrong while saving the category.","Something went wrong while saving the category."
+"The storelocator has been deleted.","The storelocator has been deleted."
+"We can't find a storelocator to delete.","We can't find a storelocator to delete."
+StoreLocator,StoreLocator
+"This storelocator no longer exists.","This storelocator no longer exists."
+"Edit StoreLocator","Edit StoreLocator"
+"Edit storelocator","Edit storelocator"
+StoreLocators,StoreLocators
+"Manage StoreLocators","Manage StoreLocators"
+"You saved this StoreLocator.","You saved this StoreLocator."
+"Something went wrong while saving the storelocator.","Something went wrong while saving the storelocator."
+"The tag has been deleted.","The tag has been deleted."
+"We can't find a tag to delete.","We can't find a tag to delete."
+Tag,Tag
+"Manage Tag","Manage Tag"
+"This tag no longer exists.","This tag no longer exists."
+"Edit Tag","Edit Tag"
+"You saved this Tag.","You saved this Tag."
+"Something went wrong while saving the tag.","Something went wrong while saving the tag."
+"Store Locatorports","Store Locatorports"
+"Test Cron Job","Test Cron Job"
+"Force Run Cron Job","Force Run Cron Job"
+"The storelocator importer cron job was processed.","The storelocator importer cron job was processed."
+"Store Locator Details","Store Locator Details"
+"Invalid import csv file.","Invalid import csv file."
+"Make sure that category content does not reference the block itself.","Make sure that category content does not reference the block itself."
+Enabled,Enabled
+Disabled,Disabled
+Full,Full
+Long,Long
+Medium,Medium
+Short,Short
+"Button Link","Button Link"
+"Show on current page","Show on current page"
+"Custom Height","Custom Height"
+"Auto Equal Height","Auto Equal Height"
+"Auto Height","Auto Height"
+List,List
+Grid,Grid
+"Grid 1","Grid 1"
+"Grid 2","Grid 2"
+"Style 1","Style 1"
+"Style 2","Style 2"
+"Style 3","Style 3"
+"Style 4","Style 4"
+"Slide 1","Slide 1"
+"Slide 2","Slide 2"
+"Top Meta","Top Meta"
+"Bottom Meta","Bottom Meta"
+"Image And Meta On Top","Image And Meta On Top"
+"Image And Meta On Bottom","Image And Meta On Bottom"
+"Top Image","Top Image"
+"Bottom Image","Bottom Image"
+Grid1,Grid1
+Grid2,Grid2
+"Center Image And Meta On Top","Center Image And Meta On Top"
+"Center Image And Meta On Bottom","Center Image And Meta On Bottom"
+Rating,Rating
+Random,Random
+Slide,Slide
+Mi,Mi
+Km,Km
+100%,100%
+75%,75%
+50%,50%
+25%,25%
+"Avatar Preview","Avatar Preview"
+Edit,Edit
+"All Store Views","All Store Views"
+"Image Preview","Image Preview"
+"More Infomation","More Infomation"
+"Store Social","Store Social"
+"Store Infomation","Store Infomation"
+Address:,Address:
+Website:,Website:
+Phone:,Phone:
+Email:,Email:
+"Swap locations A-B","Swap locations A-B"
+Go,Go
+"Opening hours","Opening hours"
+Sun,Sun
+Mon,Mon
+Tue,Tue
+Wed,Wed
+Thur,Thur
+Fri,Fri
+Sat,Sat
+"Search by Distance","Search by Distance"
+"Search by Area","Search by Area"
+Search,Search
+Reset,Reset
+"Store Name","Store Name"
+"-- Select City --","-- Select City --"
+"-- Select Zipcode --","-- Select Zipcode --"
+"-- Select Country --","-- Select Country --"
+"-- Select State/Province --","-- Select State/Province --"
+"Store list","Store list"
+results,results
+"Landofcoder - <a href=""http://landofcoder.com"" title=""landofcoder.com - Premium Magento Module Club"">landofcoder.com</a>","Landofcoder - <a href=""http://landofcoder.com"" title=""landofcoder.com - Premium Magento Module Club"">landofcoder.com</a>"
+"General Settings","General Settings"
+Enable,Enable
+Route,Route
+"Pagination List Store","Pagination List Store"
+"Enable/Disable Show Pagination. ","Enable/Disable Show Pagination. "
+"Store Limit","Store Limit"
+"Limit number of stores will be show in list store when pagging on frontend.","Limit number of stores will be show in list store when pagging on frontend."
+"Store Per Page","Store Per Page"
+"Enable Category Filter","Enable Category Filter"
+"Enable/Disable Show Category Filter Search. ","Enable/Disable Show Category Filter Search. "
+"Enable Tag Filter","Enable Tag Filter"
+"Enable/Disable Show Tag Filter Search. ","Enable/Disable Show Tag Filter Search. "
+"Enable Name Filter","Enable Name Filter"
+"Enable/Disable Show Name Filter Search. ","Enable/Disable Show Name Filter Search. "
+"Enable City Filter","Enable City Filter"
+"Enable/Disable Show City Filter Search. ","Enable/Disable Show City Filter Search. "
+"Enable Zipcode Filter","Enable Zipcode Filter"
+"Enable/Disable Show Zipcode Filter Search. ","Enable/Disable Show Zipcode Filter Search. "
+"Enable Country Filter","Enable Country Filter"
+"Enable/Disable Show Country Filter Search. ","Enable/Disable Show Country Filter Search. "
+"Enable State Filter","Enable State Filter"
+"Enable/Disable Show State Filter Search. ","Enable/Disable Show State Filter Search. "
+"Enable Rewrite Url","Enable Rewrite Url"
+"Enable/Disable Rewrite Url for store locator item.","Enable/Disable Rewrite Url for store locator item."
+"Page title","Page title"
+"Meta KeyWords","Meta KeyWords"
+"Google API","Google API"
+Key,Key
+"Please register a google API key at <a href=""https://developers.google.com/maps/web/"" target=""_blank"">here</a>","Please register a google API key at <a href=""https://developers.google.com/maps/web/"" target=""_blank"">here</a>"
+"Locator Units","Locator Units"
+"Default Location Settings","Default Location Settings"
+Map,Map
+Longitude,Longitude
+Latitude,Latitude
+Zoom,Zoom
+"Scheduled Import Location Settings","Scheduled Import Location Settings"
+"Enable Cron Job","Enable Cron Job"
+"Import Folder Path","Import Folder Path"
+"Input the folder path where you want to store the import CSV files. Default: <strong>pub/storelocator/</strong>","Input the folder path where you want to store the import CSV files. Default: <strong>pub/storelocator/</strong>"
+Delete,Delete
+"Delete items","Delete items"
+"Are you sure you wan't to delete selected items?","Are you sure you wan't to delete selected items?"
+Disable,Disable
+name,name
+StoreName,StoreName
+color,color
+fontClass,fontClass
+pagetitle,pagetitle
+keywords,keywords
+"meta description","meta description"
+tag,tag
+category,category
+Image,Image
+No results,No results
+"No locations were found with the given criteria. Please modify your selections or input.","No locations were found with the given criteria. Please modify your selections or input."

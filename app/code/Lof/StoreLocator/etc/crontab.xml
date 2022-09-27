@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="lof_storelocator">
+		<job instance="Lof\StoreLocator\Cron\Importlocation" method="execute" name="lof_storelocator_importlocation">
+			<schedule>*/5 * * * *</schedule>
+		</job>
+	</group>
+</config>

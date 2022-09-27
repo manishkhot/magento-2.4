@@ -1,0 +1,230 @@
+if(typeof(inherits) === "undefined"){
+
+	function inherits(childCtor, parentCtor) {
+	  function tempCtor() {}
+	  tempCtor.prototype = parentCtor.prototype;
+	  childCtor.superClass_ = parentCtor.prototype;
+	  childCtor.prototype = new tempCtor();
+	  childCtor.prototype.constructor = childCtor;
+	}
+}
+if(typeof(MarkerLabel_) === "undefined"){
+	function MarkerLabel_(marker, crossURL, handCursorURL) {
+	  this.marker_ = marker;
+	  this.handCursorURL_ = marker.handCursorURL;
+
+	  this.labelDiv_ = document.createElement("div");
+	  this.labelDiv_.style.cssText = "position: absolute; overflow: hidden;";
+
+	  this.eventDiv_ = document.createElement("div");
+	  this.eventDiv_.style.cssText = this.labelDiv_.style.cssText;
+
+	  this.eventDiv_.setAttribute("onselectstart", "return false;");
+	  this.eventDiv_.setAttribute("ondragstart", "return false;");
+
+	  this.crossDiv_ = MarkerLabel_.getSharedCross(crossURL);
+	}
+if(typeof(google.maps.OverlayView) !== "undefined"){
+inherits(MarkerLabel_, google.maps.OverlayView);
+}
+
+MarkerLabel_.getSharedCross = function (crossURL) {
+  var div;
+  if (typeof MarkerLabel_.getSharedCross.crossDiv === "undefined") {
+    div = document.createElement("img");
+    div.style.cssText = "position: absolute; z-index: 1000002; display: none;";
+    div.style.marginLeft = "-8px";
+    div.style.marginTop = "-9px";
+    div.src = crossURL;
+    MarkerLabel_.getSharedCross.crossDiv = div;
+  }
+  return MarkerLabel_.getSharedCross.crossDiv;
+};
+
+MarkerLabel_.prototype.onAdd = function () {
+  var me = this;
+  var cMouseIsDown = false;
+  var cDraggingLabel = false;
+  var cSavedZIndex;
+  var cLatOffset, cLngOffset;
+  var cIgnoreClick;
+  var cRaiseEnabled;
+  var cStartPosition;
+  var cStartCenter;
+  var cRaiseOffset = 20;
+  var cDraggingCursor = "url(" + this.handCursorURL_ + ")";
+  var cAbortEvent = function (e) {
+    if (e.preventDefault) {
+      e.preventDefault();
+    }
+    e.cancelBubble = true;
+    if (e.stopPropagation) {
+      e.stopPropagation();
+    }
+  };
+
+}
+
+
+MarkerLabel_.prototype.onRemove = function () {
+  var i;
+  this.labelDiv_.parentNode.removeChild(this.labelDiv_);
+  this.eventDiv_.parentNode.removeChild(this.eventDiv_);
+
+  for (i = 0; i < this.listeners_.length; i++) {
+    google.maps.event.removeListener(this.listeners_[i]);
+  }
+};
+
+
+MarkerLabel_.prototype.draw = function () {
+  this.setContent();
+  this.setTitle();
+  this.setStyles();
+};
+
+
+MarkerLabel_.prototype.setContent = function () {
+  var content = this.marker_.get("labelContent");
+  content+= "<div class='inner'></div>";
+  if (typeof content.nodeType === "undefined") {
+    this.labelDiv_.innerHTML = content;
+    this.eventDiv_.innerHTML = this.labelDiv_.innerHTML;
+  } else {
+    this.labelDiv_.innerHTML = ""; 
+    this.labelDiv_.appendChild(content);
+    content = content.cloneNode(true);
+    this.eventDiv_.appendChild(content);
+  }
+};
+
+
+MarkerLabel_.prototype.setTitle = function () {
+  this.eventDiv_.title = this.marker_.getTitle() || "";
+};
+
+MarkerLabel_.prototype.setStyles = function () {
+  var i, labelStyle;
+
+  this.labelDiv_.className = this.marker_.get("labelClass");
+  this.eventDiv_.className = this.labelDiv_.className;
+
+  this.labelDiv_.style.cssText = "";
+  this.eventDiv_.style.cssText = "";
+  labelStyle = this.marker_.get("labelStyle");
+  for (i in labelStyle) {
+    if (labelStyle.hasOwnProperty(i)) {
+      this.labelDiv_.style[i] = labelStyle[i];
+      this.eventDiv_.style[i] = labelStyle[i];
+    }
+  }
+  this.setMandatoryStyles();
+};
+
+MarkerLabel_.prototype.setMandatoryStyles = function () {
+  this.labelDiv_.style.position = "absolute";
+  this.labelDiv_.style.overflow = "hidden";
+  if (typeof this.labelDiv_.style.opacity !== "undefined" && this.labelDiv_.style.opacity !== "") {
+    this.labelDiv_.style.MsFilter = "\"progid:DXImageTransform.Microsoft.Alpha(opacity=" + (this.labelDiv_.style.opacity * 100) + ")\"";
+    this.labelDiv_.style.filter = "alpha(opacity=" + (this.labelDiv_.style.opacity * 100) + ")";
+  }
+
+  this.eventDiv_.style.position = this.labelDiv_.style.position;
+  this.eventDiv_.style.overflow = this.labelDiv_.style.overflow;
+  this.eventDiv_.style.opacity = 0.01;
+  this.eventDiv_.style.MsFilter = "\"progid:DXImageTransform.Microsoft.Alpha(opacity=1)\"";
+  this.eventDiv_.style.filter = "alpha(opacity=1)";
+
+  this.setAnchor();
+  this.setPosition();
+  this.setVisible();
+};
+
+
+MarkerLabel_.prototype.setAnchor = function () {
+  var anchor = this.marker_.get("labelAnchor");
+  this.labelDiv_.style.marginLeft = -anchor.x + "px";
+  this.labelDiv_.style.marginTop = -anchor.y + "px";
+  this.eventDiv_.style.marginLeft = -anchor.x + "px";
+  this.eventDiv_.style.marginTop = -anchor.y + "px";
+};
+
+MarkerLabel_.prototype.setPosition = function (yOffset) {
+  var position = this.getProjection().fromLatLngToDivPixel(this.marker_.getPosition());
+  if (typeof yOffset === "undefined") {
+    yOffset = 0;
+  }
+  this.labelDiv_.style.left = Math.round(position.x) + "px";
+  this.labelDiv_.style.top = Math.round(position.y - yOffset) + "px";
+  this.eventDiv_.style.left = this.labelDiv_.style.left;
+  this.eventDiv_.style.top = this.labelDiv_.style.top;
+
+  this.setZIndex();
+};
+
+
+MarkerLabel_.prototype.setZIndex = function () {
+  var zAdjust = (this.marker_.get("labelInBackground") ? -1 : +1);
+  if (typeof this.marker_.getZIndex() === "undefined") {
+    this.labelDiv_.style.zIndex = parseInt(this.labelDiv_.style.top, 10) + zAdjust;
+    this.eventDiv_.style.zIndex = this.labelDiv_.style.zIndex;
+  } else {
+    this.labelDiv_.style.zIndex = this.marker_.getZIndex() + zAdjust;
+    this.eventDiv_.style.zIndex = this.labelDiv_.style.zIndex;
+  }
+};
+
+
+MarkerLabel_.prototype.setVisible = function () {
+  if (this.marker_.get("labelVisible")) {
+    this.labelDiv_.style.display = this.marker_.getVisible() ? "block" : "none";
+  } else {
+    this.labelDiv_.style.display = "none";
+  }
+  this.eventDiv_.style.display = this.labelDiv_.style.display;
+};
+
+}
+if(typeof(MarkerWithLabel) === "undefined"){
+	function MarkerWithLabel(opt_options) {
+	  opt_options = opt_options || {};
+	  opt_options.labelContent = opt_options.labelContent || "";
+	  opt_options.labelAnchor = opt_options.labelAnchor || new google.maps.Point(0, 0);
+	  opt_options.labelClass = opt_options.labelClass || "markerLabels";
+	  opt_options.labelStyle = opt_options.labelStyle || {};
+	  opt_options.labelInBackground = opt_options.labelInBackground || false;
+	  if (typeof opt_options.labelVisible === "undefined") {
+	    opt_options.labelVisible = true;
+	  }
+	  if (typeof opt_options.raiseOnDrag === "undefined") {
+	    opt_options.raiseOnDrag = true;
+	  }
+	  if (typeof opt_options.clickable === "undefined") {
+	    opt_options.clickable = true;
+	  }
+	  if (typeof opt_options.draggable === "undefined") {
+	    opt_options.draggable = false;
+	  }
+	  if (typeof opt_options.optimized === "undefined") {
+	    opt_options.optimized = false;
+	  }
+	  opt_options.crossImage = opt_options.crossImage || "http" + (document.location.protocol === "https:" ? "s" : "") + "://maps.gstatic.com/intl/en_us/mapfiles/drag_cross_67_16.png";
+	  opt_options.handCursor = opt_options.handCursor || "http" + (document.location.protocol === "https:" ? "s" : "") + "://maps.gstatic.com/intl/en_us/mapfiles/closedhand_8_8.cur";
+	  opt_options.optimized = false;
+
+	  this.label = new MarkerLabel_(this, opt_options.crossImage, opt_options.handCursor);
+	  google.maps.Marker.apply(this, arguments);
+	}
+
+	MarkerWithLabel.prototype.setMap = function (theMap) {
+	  google.maps.Marker.prototype.setMap.apply(this, arguments);
+	  this.label.setMap(theMap);
+	};
+
+	require(['jquery','jquery/ui'],function ($) {
+		$(document).ready(function ($) {
+			inherits(MarkerWithLabel, google.maps.Marker);
+		})
+	})
+}
+var init_marker_map_l=true;

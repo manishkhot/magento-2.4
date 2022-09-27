@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Geolocation test</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<script>
+			document.write('About to ask for geolocation…')
+
+			navigator.geolocation.getCurrentPosition(function success(position){
+				document.write('position is ' + position.coords.latitude + ',' + position.coords.longitude)
+			}, function error(error){
+				document.write('error: ' + error.code + ' - ' + error.message)
+			})
+		</script>
+	</body>
+</html>
+

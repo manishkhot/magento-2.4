@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Landofcoder
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Venustheme.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.venustheme.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category   Landofcoder 
+ * @package    Lof_StoreLocator
+ * @copyright  Copyright (c) 2014 Venustheme (http://www.venustheme.com/)
+ * @license    http://www.landofcoder.com/LICENSE-1.0.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+	<menu>
+		<!-- location -->
+		<add id="Lof_StoreLocator::storelocator" sortOrder="80" title="StoreLocator" module="Lof_StoreLocator" resource="Lof_StoreLocator::storelocator" parent="Lof_All::lof_all"/>
+		
+		<add id="Lof_StoreLocator::storelocator_new" title="Add New StoreLocator" module="Lof_StoreLocator" sortOrder="2" parent="Lof_StoreLocator::storelocator" action="storelocator/storelocator/new" resource="Lof_StoreLocator::storelocator_edit"/>
+		<add id="Lof_StoreLocator::storelocator_manage" title="Manage StoreLocators" module="Lof_StoreLocator" sortOrder="3" parent="Lof_StoreLocator::storelocator" action="storelocator/storelocator/index" resource="Lof_StoreLocator::storelocator"/>
+
+		<!-- category -->
+		<add id="Lof_StoreLocator::category_new" title="Add New Category" module="Lof_StoreLocator" sortOrder="4" parent="Lof_StoreLocator::storelocator" action="storelocator/category/new" resource="Lof_StoreLocator::category_edit"/>
+		<add id="Lof_StoreLocator::category_manage" title="Manage Category" module="Lof_StoreLocator" sortOrder="5" parent="Lof_StoreLocator::storelocator" action="storelocator/category/index" resource="Lof_StoreLocator::category"/>
+		
+		<add id="Lof_StoreLocator::testcronrun" title="Force Run Cron Job" module="Lof_StoreLocator" sortOrder="6" action="storelocator/testcron/runcron" resource="Lof_StoreLocator::testcron" parent="Lof_StoreLocator::storelocator"/>
+
+		<add id="Lof_StoreLocator::configuration" title="Settings" module="Lof_StoreLocator" sortOrder="10" parent="Lof_StoreLocator::storelocator" action="adminhtml/system_config/edit/section/storelocator" resource="Lof_StoreLocator::config_storelocator"/>
+
+	</menu>
+
+</config>
