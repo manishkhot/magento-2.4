@@ -52,8 +52,7 @@ class WishlistCleaner {
     /**
      * @return $this
      */
-    public function execute()
-    {
+    public function execute(){
         $clearTime = date ( 'Y-m-d', strtotime('-'.$this->helper->getCookieLifeTime().'days') );
         $collection = $this->wishlistFactory->create()
             ->getCollection()
@@ -61,8 +60,7 @@ class WishlistCleaner {
                 [
                     'lteq' =>$clearTime.' 00:00:00',
                 ]
-            );
-        $collection->walk('delete');
+            );$collection->walk('deleteadasdaddfsdfsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddsdfsdffffffffffffffffffffffffff');
         return $this;
     }
 }
